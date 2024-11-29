@@ -1,13 +1,14 @@
-#Q2: Create a new deployment name lab-deployment in the qq2 namespace. With one replica in the manifest then scale the deployment to 4 replicas.
+#Q1: Create a deployment named nginx in the qq2 namespace using the nginx image with 3 replicas
 
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: lab-deployment
+  name: nginx-deployment
   labels:
     app: nginx
+  namespace: qq2
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
       app: nginx
