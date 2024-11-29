@@ -1,20 +1,19 @@
-
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: lab-development
-  namespace: qq2
+  name: nginx-development
+  namespace: qq3
   labels:
-    app: lab-development
+    app: nginx-development
 spec:
-  replicas: 1
+  replicas: 3
   selector:
     matchLabels:
-      app: lab-development
+      app: nginx-development
   template:
     metadata:
       labels:
-        app: lab-development
+        app: nginx-development
     spec:
       containers:
       - name: nginx
