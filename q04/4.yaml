@@ -1,1 +1,45 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: python
+  name: python
+  namespace: programming
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: python
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: python
+    spec:
+      containers:
+        - image: python:3.9.20-slim-bullseye
+          name: python
+          ports:
+            - containerPort: 9797
+          resources: {}
+status: {}
 
+---
+apiVersion: v1
+kind: Service
+metadata:
+  creationTimestamp: null
+  labels:
+    app: python
+  name: python-service
+  namespace: programming
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 9797
+      protocol: TCP
+      targetPort: 9797
+  selector:
+    app: python

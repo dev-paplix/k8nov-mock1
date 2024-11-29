@@ -1,0 +1,35 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  creationTimestamp: null
+  labels:
+    app: pgadmin
+  name: pgadmin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pgadmin
+  strategy: {}
+  template:
+    metadata:
+      creationTimestamp: null
+      labels:
+        app: pgadmin
+    spec:
+      containers:
+        - image: elestio/pgadmin
+          name: pgadmin
+          env:
+            - name: PGADMIN_DEFAULT_EMAIL
+              value: "test@test.com"
+            - name: PGADMIN_DEFAULT_PASSWORD
+              value: "password"
+            - name: PGADMIN_LISTEN_PORT
+              value: "8080"
+            - name: ADMIN_EMAIL
+              value: "test@test.com"
+            - name: ADMIN_PASSWORD
+              value: "password"
+          resources: {}
+status: {}
