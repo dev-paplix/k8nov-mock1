@@ -1,1 +1,35 @@
 
+controlplane $ cat lab-deployment.yaml 
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: lab-deployment
+  namespace: qq2
+  labels:
+    app: nginx
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nginx
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:1.14.2
+        ports:
+        - containerPort: 80
+controlplane $ kubectl apply -f lab-deployment.yaml 
+deployment.apps/lab-deployment created
+controlplane $ kubectl get deploy -n qq2
+NAME             READY   UP-TO-DATE   AVAILABLE   AGE
+lab-deployment   1/1     1            1           10s
+controlplane $ kubectl scale --current-replicas=1 --replicas=4 deployment/lab-deployment -n qq2
+deployment.apps/lab-deployment scaled
+controlplane $ kubectl get deploy -n qq2
+NAME             READY   UP-TO-DATE   AVAILABLE   AGE
+lab-deployment   1/4     4            1           20s
+controlplane $ 
