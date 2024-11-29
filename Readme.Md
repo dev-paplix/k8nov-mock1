@@ -19,10 +19,7 @@ python:3.9.20-slim-bullseye
 Make sure the cloud system can access it using port 9797
 
 Q:5
-Create a pod named limit with to images one is  redis and another one is nginx in the qq3 namespace with the following resource limits and requests:
-
-
-
+Create a pod named limit with two images one is  redis and another one is nginx in the qq3 namespace.
 
 Q6:
 Create a Deployment named web in the ca1 namespace with an image of nginx:latest. Create a new Service named web-svc that sits in front of this deployment.  All changes should be performed in the ca1 namespace. 
