@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: apache-deployment
+  namespace: qq3
+  labels:
+    app: apache-httpd
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: apache-httpd
+  template:
+    metadata:
+      labels:
+        app: apache-httpd
+    spec:
+      containers:
+      - name: apache-httpd
+        image: httpd:latest
+        ports:
+        - containerPort: 80

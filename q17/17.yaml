@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pgadmin-deployment
+  namespace: qq3
+  labels:
+    app: pgadmin
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pgadmin
+  template:
+    metadata:
+      labels:
+        app: pgadmin
+    spec:
+      containers:
+      - name: pgadmin
+        image: elestio/pgadmin:latest
+        env:
+        - name: SOFTWARE_VERSION_TAG
+          value: "latest"
+        - name: SOFTWARE_PASSWORD
+          value: "test"
+        - name: ADMIN_EMAIL
+          value: "test@email.com" 
+        - name: ADMIN_PASSWORD
+          value: "test"   
+        ports:
+        - containerPort: 5432
