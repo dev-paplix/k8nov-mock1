@@ -1,1 +1,20 @@
-
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: qq3
+---
+apiVersion: v1
+kind: Pod
+metadata:
+  name: limit
+  namespace: qq3
+spec:
+  containers:
+  - name: redis
+    image: redis:alpine3.20
+    ports:
+    - containerPort: 6379
+  - name: nginx
+    image: nginx:latest
+    ports:
+    - containerPort: 80
