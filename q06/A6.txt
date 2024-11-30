@@ -1,0 +1,174 @@
+controlplane $ k describe pods -n ca1
+Name:             web-5b8fbbf9f7-5c7kl
+Namespace:        ca1
+Priority:         0
+Service Account:  default
+Node:             node01/172.30.2.2
+Start Time:       Sat, 30 Nov 2024 18:08:08 +0000
+Labels:           app=web
+                  pod-template-hash=5b8fbbf9f7
+Annotations:      cni.projectcalico.org/containerID: 04fadf3633c13dd1305cac28da42ecc6e1fc0484e168ed87157d7f2730614b3e
+                  cni.projectcalico.org/podIP: 192.168.1.8/32
+                  cni.projectcalico.org/podIPs: 192.168.1.8/32
+Status:           Running
+IP:               192.168.1.8
+IPs:
+  IP:           192.168.1.8
+Controlled By:  ReplicaSet/web-5b8fbbf9f7
+Containers:
+  nginx:
+    Container ID:   containerd://43a0144d74d270319ce34374a1aae1b5bfe4f1594d7cd731c1e8eab123f2d543
+    Image:          nginx:latest
+    Image ID:       docker.io/library/nginx@sha256:0c86dddac19f2ce4fd716ac58c0fd87bf69bfd4edabfd6971fb885bafd12a00b
+    Port:           80/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Sat, 30 Nov 2024 18:08:11 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-cg4zw (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-cg4zw:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  6m53s  default-scheduler  Successfully assigned ca1/web-5b8fbbf9f7-5c7kl to node01
+  Normal  Pulling    6m52s  kubelet            Pulling image "nginx:latest"
+  Normal  Pulled     6m50s  kubelet            Successfully pulled image "nginx:latest" in 724ms (1.853s including waiting). Image size: 72996017 bytes.
+  Normal  Created    6m50s  kubelet            Created container nginx
+  Normal  Started    6m50s  kubelet            Started container nginx
+
+
+Name:             web-5b8fbbf9f7-gzqtv
+Namespace:        ca1
+Priority:         0
+Service Account:  default
+Node:             node01/172.30.2.2
+Start Time:       Sat, 30 Nov 2024 18:08:08 +0000
+Labels:           app=web
+                  pod-template-hash=5b8fbbf9f7
+Annotations:      cni.projectcalico.org/containerID: fc7fee31609c1c356408dbdf6bf2472e4546c7445f3cc877323330b933499f5f
+                  cni.projectcalico.org/podIP: 192.168.1.6/32
+                  cni.projectcalico.org/podIPs: 192.168.1.6/32
+Status:           Running
+IP:               192.168.1.6
+IPs:
+  IP:           192.168.1.6
+Controlled By:  ReplicaSet/web-5b8fbbf9f7
+Containers:
+  nginx:
+    Container ID:   containerd://8c270e6f8e4d84a1ac779971949ff2710f4a5dc73ed7e9d3058822d46b7613d9
+    Image:          nginx:latest
+    Image ID:       docker.io/library/nginx@sha256:0c86dddac19f2ce4fd716ac58c0fd87bf69bfd4edabfd6971fb885bafd12a00b
+    Port:           80/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Sat, 30 Nov 2024 18:08:10 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-xsmhd (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-xsmhd:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  6m53s  default-scheduler  Successfully assigned ca1/web-5b8fbbf9f7-gzqtv to node01
+  Normal  Pulling    6m52s  kubelet            Pulling image "nginx:latest"
+  Normal  Pulled     6m52s  kubelet            Successfully pulled image "nginx:latest" in 718ms (718ms including waiting). Image size: 72996017 bytes.
+  Normal  Created    6m52s  kubelet            Created container nginx
+  Normal  Started    6m51s  kubelet            Started container nginx
+
+
+Name:             web-5b8fbbf9f7-mgkj2
+Namespace:        ca1
+Priority:         0
+Service Account:  default
+Node:             node01/172.30.2.2
+Start Time:       Sat, 30 Nov 2024 18:08:08 +0000
+Labels:           app=web
+                  pod-template-hash=5b8fbbf9f7
+Annotations:      cni.projectcalico.org/containerID: c050bcf74a12744cf34b1b283471bba082ddb94352981a68960c4d0b27d849e5
+                  cni.projectcalico.org/podIP: 192.168.1.7/32
+                  cni.projectcalico.org/podIPs: 192.168.1.7/32
+Status:           Running
+IP:               192.168.1.7
+IPs:
+  IP:           192.168.1.7
+Controlled By:  ReplicaSet/web-5b8fbbf9f7
+Containers:
+  nginx:
+    Container ID:   containerd://420fcda0ae907474fdc97e80931deb1c684917303a03ffa29110e3d0b6585cf9
+    Image:          nginx:latest
+    Image ID:       docker.io/library/nginx@sha256:0c86dddac19f2ce4fd716ac58c0fd87bf69bfd4edabfd6971fb885bafd12a00b
+    Port:           80/TCP
+    Host Port:      0/TCP
+    State:          Running
+      Started:      Sat, 30 Nov 2024 18:08:10 +0000
+    Ready:          True
+    Restart Count:  0
+    Environment:    <none>
+    Mounts:
+      /var/run/secrets/kubernetes.io/serviceaccount from kube-api-access-j2wvr (ro)
+Conditions:
+  Type                        Status
+  PodReadyToStartContainers   True 
+  Initialized                 True 
+  Ready                       True 
+  ContainersReady             True 
+  PodScheduled                True 
+Volumes:
+  kube-api-access-j2wvr:
+    Type:                    Projected (a volume that contains injected data from multiple sources)
+    TokenExpirationSeconds:  3607
+    ConfigMapName:           kube-root-ca.crt
+    ConfigMapOptional:       <nil>
+    DownwardAPI:             true
+QoS Class:                   BestEffort
+Node-Selectors:              <none>
+Tolerations:                 node.kubernetes.io/not-ready:NoExecute op=Exists for 300s
+                             node.kubernetes.io/unreachable:NoExecute op=Exists for 300s
+Events:
+  Type    Reason     Age    From               Message
+  ----    ------     ----   ----               -------
+  Normal  Scheduled  6m53s  default-scheduler  Successfully assigned ca1/web-5b8fbbf9f7-mgkj2 to node01
+  Normal  Pulling    6m52s  kubelet            Pulling image "nginx:latest"
+  Normal  Pulled     6m51s  kubelet            Successfully pulled image "nginx:latest" in 893ms (1.269s including waiting). Image size: 72996017 bytes.
+  Normal  Created    6m51s  kubelet            Created container nginx
+  Normal  Started    6m51s  kubelet            Started container nginx
+controlplane $ g
