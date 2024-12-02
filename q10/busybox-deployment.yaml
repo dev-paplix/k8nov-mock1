@@ -1,0 +1,18 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: busybox
+  namespace: busybox
+spec:
+  selector:
+    matchLabels:
+      app: busybox
+  template:
+    metadata:
+      labels:
+        app: busybox
+    spec:
+      containers:
+      - name: busybox
+        image: busybox:uclibc
+        command: ["/bin/sh", "-c", "while true; do echo $(date); sleep 10; done"]
