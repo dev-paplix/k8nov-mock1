@@ -7,7 +7,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: busybox-deployment
-  namespace: ca2
+  namespace: busybox
   labels:
     app: busybox
 spec:
@@ -23,6 +23,7 @@ spec:
       containers:
       - name: busybox
         image: busybox:uclibc
+        command: ["sh", "-c", "while true; do echo 'Show the logs to admin'; sleep 5; done"]
         ports:
         - containerPort: 80
 ---
