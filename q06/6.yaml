@@ -1,0 +1,41 @@
+# Create ca1 namespace
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: ca1
+---
+# Deployment manifest
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: web
+  namespace: ca1
+spec:
+  selector:
+    matchLabels:
+      app: web
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: web
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:latest
+        ports:
+        - containerPort: 80
+---
+# Service manifest
+apiVersion: v1
+kind: Service
+metadata:
+  name: web-svc
+  namespace: ca1
+spec:
+  selector:
+    app: web
+  ports:
+  - port: 80
+    targetPort: 80
+  type: ClusterIP
