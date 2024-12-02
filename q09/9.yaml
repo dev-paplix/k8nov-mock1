@@ -7,7 +7,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: class-deployment
-  namespace: ca2
+  namespace: class
   labels:
     app: class
 spec:
