@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: class
+spec:
+  selector:
+    matchLabels:
+      app: class
+  template:
+    metadata:
+      labels:
+        app: class
+    spec:
+      containers:
+      - name: httpd
+        image: httpd:alpine3.20
+        ports:
+        - containerPort: 80
+        - containerPort: 443
