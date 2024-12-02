@@ -9,22 +9,23 @@ metadata:
   name: class-deployment
   namespace: class
   labels:
-    app: class
+    app: class-deployment
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: httpd
+      app: class-deployment
   template:
     metadata:
       labels:
-        app: httpd
+        app: class-deployment
     spec:
       containers:
       - name: httpd
         image: httpd:alpine3.20
         ports:
         - containerPort: 80
+        - containerPort: 443
 ---
 apiVersion: v1
 kind: Service
@@ -33,9 +34,14 @@ metadata:
   namespace: class
 spec:
   selector:
-    app.kubernetes.io/name: class
+    app.kubernetes.io/name: class-deployment
   ports:
     - protocol: TCP
       port: 443
+      name: port443
+      targetPort: 443
+    - protocol: TCP
+      port: 80
+      name: port80
       targetPort: 80
   type: LoadBalancer
