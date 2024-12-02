@@ -9,16 +9,16 @@ metadata:
   name: cloud-app01
   namespace: ca2
   labels:
-    app: nginx
+    app: cloud-app01
 spec:
   replicas: 2
   selector:
     matchLabels:
-      app: nginx
+      app: cloud-app01
   template:
     metadata:
       labels:
-        app: nginx
+        app: cloud-app01
     spec:
       containers:
       - name: nginx
@@ -34,8 +34,7 @@ metadata:
 spec:
   type: NodePort
   selector:
-    app.kubernetes.io/name: nginx
+    app: cloud-app01
   ports:
     - port: 80
       targetPort: 80
-      nodePort: 30007
